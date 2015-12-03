@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="57023610-fd5c-4d01-9213-66a5d44e4a5f">
+	<property name="ireport.zoom" value="1.100000000000005"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="55"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="numFact" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tblfactxdatos.id_fact AS tblfactxdatos_id_fact ,
+     tblfactxdatos.cedula_cliente AS tblfactxdatos_cedula_cliente,
+     tblfactxdatos.nombre_cliente AS tblfactxdatos_nombre_cliente,
+     tblfactxdatos.apellido_cliente AS tblfactxdatos_apellido_cliente,
+     tblfactxdatos.telefono_cliente AS tblfactxdatos_telefono_cliente,
+     tblfactxdatos.direccion_cliente AS tblfactxdatos_direccion_cliente,
+     tblfactxdatos.fecha_exp AS tblfactxdatos_fecha_exp,
+     tblfactxdatos.fecha_venc AS tblfactxdatos_fecha_venc,
+     tblfactxdatos.total AS tblfactxdatos_total,
+     tblfactxproductos.id_fact AS tblfactxproductos_id_fact,
+     tblfactxproductos.cod_producto AS tblfactxproductos_cod_producto,
+     tblfactxproductos.nombre_producto AS tblfactxproductos_nombre_producto,
+     tblfactxproductos.cantidad_prod AS tblfactxproductos_cantidad_prod,
+     tblfactxproductos.precio_unitario AS tblfactxproductos_precio_unitario,
+     tblfactxproductos.subtotal AS tblfactxproductos_subtotal
+
+FROM
+     tblfactxdatos,tblfactxproductos
+WHERE
+     (tblfactxdatos.id_fact = $P{numFact}) and (tblfactxproductos.id_fact = $P{numFact})]]>
+	</queryString>
+	<field name="tblfactxdatos_id_fact" class="java.lang.Integer"/>
+	<field name="tblfactxdatos_cedula_cliente" class="java.lang.Integer"/>
+	<field name="tblfactxdatos_nombre_cliente" class="java.lang.String"/>
+	<field name="tblfactxdatos_apellido_cliente" class="java.lang.String"/>
+	<field name="tblfactxdatos_telefono_cliente" class="java.lang.Integer"/>
+	<field name="tblfactxdatos_direccion_cliente" class="java.lang.String"/>
+	<field name="tblfactxdatos_fecha_exp" class="java.lang.String"/>
+	<field name="tblfactxdatos_fecha_venc" class="java.lang.String"/>
+	<field name="tblfactxdatos_total" class="java.lang.Integer"/>
+	<field name="tblfactxproductos_id_fact" class="java.lang.Integer"/>
+	<field name="tblfactxproductos_cod_producto" class="java.lang.Integer"/>
+	<field name="tblfactxproductos_nombre_producto" class="java.lang.String"/>
+	<field name="tblfactxproductos_cantidad_prod" class="java.lang.Integer"/>
+	<field name="tblfactxproductos_precio_unitario" class="java.lang.Integer"/>
+	<field name="tblfactxproductos_subtotal" class="java.lang.Integer"/>
+	<group name="tblfactxdatos_id_fact">
+		<groupExpression><![CDATA[$F{tblfactxdatos_id_fact}]]></groupExpression>
+		<groupHeader>
+			<band height="143">
+				<rectangle radius="10">
+					<reportElement x="447" y="0" width="355" height="129" uuid="165733aa-cc1e-468e-ae2c-b8f86b6f305a"/>
+				</rectangle>
+				<rectangle radius="10">
+					<reportElement x="0" y="0" width="437" height="129" uuid="1f1a9ad3-e2e6-4a41-bbb2-d324427e1276"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="13" y="38" width="72" height="25" uuid="a52f43b0-3818-4463-9504-db80f5365f12"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<text><![CDATA[Nombre:]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Detail" x="85" y="38" width="165" height="25" uuid="10b1e8fb-19d2-4d42-b2ba-b9cc2d1590b9"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblfactxdatos_nombre_cliente}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="250" y="38" width="174" height="25" uuid="a4257d24-9466-4fdc-b323-a7479fe95f6b"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblfactxdatos_apellido_cliente}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="13" y="63" width="72" height="25" uuid="44af271c-f5ad-4047-a423-76d2bb2abb2e"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<text><![CDATA[Telefono: ]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Detail" x="85" y="13" width="165" height="25" uuid="eb59a565-688f-4f65-86e2-7cd6510036ef"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblfactxdatos_cedula_cliente}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="13" y="13" width="72" height="25" uuid="863ac4d7-216c-4506-b8a4-886e9f492280"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<text><![CDATA[Cedula : ]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Detail" x="85" y="63" width="165" height="25" uuid="c8ea8c62-471d-4a02-b83b-dee6a7da38f6"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblfactxdatos_telefono_cliente}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="13" y="88" width="72" height="25" uuid="ea08eb1c-8d77-43f6-af6d-d244304373c2"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<text><![CDATA[Direccion: ]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Detail" x="85" y="88" width="299" height="25" uuid="6e707dcd-1adb-47c4-a1b2-fdc71d2683db"/>
+					<textFieldExpression><![CDATA[$F{tblfactxdatos_direccion_cliente}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="457" y="13" width="128" height="25" uuid="1f840e9f-134e-495b-b6c5-df38c611e7b0"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Fecha de expedición: ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="457" y="49" width="128" height="25" uuid="b2beeddb-ce17-4e4d-92f3-8747492534b7"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Fecha de vencimiento: ]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Detail" x="585" y="13" width="206" height="25" uuid="c8d609b0-6377-40ab-b410-f8bfe4d3ed4d"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblfactxdatos_fecha_exp}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="585" y="49" width="206" height="25" uuid="f8f88b3e-3db1-4169-bed1-3dcb3c78e4bf"/>
+					<textFieldExpression><![CDATA[$F{tblfactxdatos_fecha_venc}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="30"/>
+		</groupFooter>
+	</group>
+	<group name="total"/>
+	<group name="total1"/>
+	<group name="total3">
+		<groupHeader>
+			<band height="29">
+				<staticText>
+					<reportElement x="0" y="0" width="179" height="29" uuid="7a36fe53-bada-4bab-b7b8-ea6f92cd690a"/>
+					<textElement>
+						<font size="18"/>
+					</textElement>
+					<text><![CDATA[Código producto]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="179" y="0" width="298" height="29" uuid="23f41989-8413-468f-85c7-1c636cf81f7a"/>
+					<textElement>
+						<font size="18"/>
+					</textElement>
+					<text><![CDATA[Detalle producto]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="477" y="1" width="81" height="28" uuid="346ce1ad-98c3-468a-9c64-f633d2a03311"/>
+					<textElement>
+						<font size="18"/>
+					</textElement>
+					<text><![CDATA[Cantidad]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="558" y="1" width="128" height="28" uuid="97bdfee1-804d-4d1e-a5cf-3fa0ece84126"/>
+					<textElement>
+						<font size="18"/>
+					</textElement>
+					<text><![CDATA[Precio unit.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="686" y="0" width="116" height="29" uuid="a86b5bd7-981b-4744-a25c-3a6bad7bb2d2"/>
+					<textElement>
+						<font size="18"/>
+					</textElement>
+					<text><![CDATA[Subtotal]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band height="575" splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="247" height="67" uuid="e5b401b5-8cff-44c1-aa60-6dc8846c9a35"/>
+				<textElement verticalAlignment="Middle">
+					<font size="54" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[PRECAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="605" y="0" width="197" height="23" uuid="1da761ae-5575-4fec-a888-17b84530fdbb"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[FACTURA CAMBIARIA DE VENTA
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="SubTitle" x="624" y="23" width="178" height="24" forecolor="#000000" uuid="7c88fbfb-818a-454c-8dca-c39763839ca7"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblfactxdatos_id_fact}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="524" y="23" width="100" height="20" uuid="6ed42c47-6cd0-4d40-adbc-13bb9343442f"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[NRO.]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="179" height="30" uuid="5c0a6629-a987-4c0d-af57-c9d068da91df"/>
+				<textFieldExpression><![CDATA[$F{tblfactxproductos_cod_producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="179" y="0" width="298" height="30" uuid="702c052b-3de4-4d1a-9266-8f6c326aec33"/>
+				<textFieldExpression><![CDATA[$F{tblfactxproductos_nombre_producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="477" y="0" width="81" height="30" uuid="a755367d-d4b2-4a77-b47a-37e1cd494765"/>
+				<textFieldExpression><![CDATA[$F{tblfactxproductos_cantidad_prod}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="558" y="0" width="127" height="30" uuid="a2c5601a-7e3f-40d4-9f42-871cc2aa050f"/>
+				<textFieldExpression><![CDATA[$F{tblfactxproductos_precio_unitario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="686" y="0" width="116" height="30" uuid="35c3f361-e969-4071-a223-277718074751"/>
+				<textFieldExpression><![CDATA[$F{tblfactxproductos_subtotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="29" splitType="Stretch"/>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="50">
+			<staticText>
+				<reportElement x="566" y="0" width="92" height="29" uuid="810435b1-e9b2-4f55-aea9-8db7fe913aef"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Total:  $]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="658" y="0" width="144" height="29" uuid="1c4f392d-08aa-4e9c-95af-60915d6c6068"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblfactxdatos_total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
